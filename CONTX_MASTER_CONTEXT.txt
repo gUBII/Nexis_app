@@ -174,7 +174,29 @@ Detailed instructions:
 Detailed risk notes:
 - CONTX_GAPS_AND_RISKS.md
 
-[10] RAW MACHINE FILES FOR AGENTS
+[10] LATEST COMMIT AUDIT (SHORT)
+-------------------------------
+Latest reviewed commit:
+- Hash: cef706644836cb4c7ecfb51493768c082a9a19bf
+- Date: 2026-02-10 08:09:31 +1100
+- Subject: dev update
+
+Delta summary:
+- 262 files changed (243 modified, 19 added)
+- 59,518 insertions / 56,873 deletions
+- 243 files show equal insertions/deletions (large formatting/EOL churn signal)
+
+Semantic checks versus parent commit:
+- API endpoint count: unchanged (58 -> 58)
+- Stack route count: unchanged (82 -> 82)
+- Runtime dependency set in package.json: unchanged (61 -> 61)
+
+Commit audit docs:
+- CONTX_LAST_COMMIT_UPDATE.md
+- CONTX_LAST_COMMIT_FILES_RAW.txt
+- CONTX_LAST_COMMIT_TOP_DELTA.txt
+
+[11] RAW MACHINE FILES FOR AGENTS
 ---------------------------------
 - CONTX_API_ENDPOINTS_RAW.txt
 - CONTX_ROUTE_TARGETS_RAW.txt

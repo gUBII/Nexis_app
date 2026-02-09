@@ -27,11 +27,14 @@ Use this file as the top-level entry point.
 | `CONTX_SCREEN_CATALOG.md` | Screen catalog with complexity and behavior grouping. | AI + Human |
 | `CONTX_DATA_AND_STATE.md` | Redux, Context, AsyncStorage keys, state lifecycles. | AI + Human |
 | `CONTX_GAPS_AND_RISKS.md` | Architectural, security, maintainability, and runtime risk notes. | Tech Lead |
+| `CONTX_LAST_COMMIT_UPDATE.md` | Audited summary of the latest commit (scope, semantic deltas, hotspots). | AI + Human |
 | `CONTX_API_ENDPOINTS_RAW.txt` | Raw auto-extracted API call rows. | AI |
 | `CONTX_ROUTE_TARGETS_RAW.txt` | Raw auto-extracted navigation transitions. | AI |
 | `CONTX_FUNCTIONS_RAW.txt` | Raw function definition inventory. | AI |
 | `CONTX_ASYNCSTORAGE_KEYS_RAW.txt` | Raw AsyncStorage key scan. | AI |
 | `CONTX_SCREEN_METRICS_RAW.txt` | Raw screen size/API usage metrics. | AI |
+| `CONTX_LAST_COMMIT_FILES_RAW.txt` | Raw name-status file list for latest commit. | AI |
+| `CONTX_LAST_COMMIT_TOP_DELTA.txt` | Raw line-churn ranking for latest commit. | AI |
 
 ## Quick Architecture Visual
 ```mermaid
@@ -54,4 +57,5 @@ flowchart TD
 1. Read `CONTX_MASTER_CONTEXT.txt`.
 2. Read `CONTX_HOW_TO_RUN.md` and verify environment.
 3. Read `CONTX_ROUTING_AND_FLOW.md` + `CONTX_API_CALLS_MATRIX.md`.
-4. Use raw files when scripting analysis or building agents.
+4. Read `CONTX_LAST_COMMIT_UPDATE.md` for latest-commit deltas.
+5. Use raw files when scripting analysis or building agents.

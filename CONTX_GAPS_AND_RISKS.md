@@ -45,6 +45,12 @@
 - `tabs/Dashboard.js`, `Header.js`, `LeadForm.js`, `IncidentForm.js`, `EodForm.js` are highly dense.
 - Risk: fragile modifications, hidden regressions, difficult testability.
 
+### E. Repository-wide mass-change commits reduce review signal
+- Latest commit (`cef7066`, dated 2026-02-10) changed `262` files with very high churn.
+- Most modified files have equal insertions/deletions, indicating broad formatting/EOL rewrite patterns.
+- Includes regenerated artifact churn like `android/app/src/main/assets/index.android.bundle` and very large lockfile churn in `package-lock.json`.
+- Risk: reviewers can miss real behavioral changes hidden inside broad mechanical rewrites.
+
 ## 3. Functional Reliability Risks
 - Multiple flows depend on AsyncStorage keys existing exactly as expected.
 - Attendance path mixes camera, location, background fetch, and API calls with minimal fallback orchestration.
@@ -67,6 +73,7 @@
 | P1 | Establish production signing config. |
 | P2 | Centralize API client + storage keys. |
 | P2 | Break up monolithic screens/components and add targeted tests. |
+| P2 | Separate mechanical formatting commits from behavioral changes to improve review quality. |
 | P3 | Dependency pruning and strict lint/static checks for unsafe artifacts. |
 
 ## 6. Suggested Hardening Sequence
