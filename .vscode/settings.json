@@ -1,6 +1,28 @@
 {
     "postman.settings.dotenv-detection-notification-visibility": false,
+    "files.watcherExclude": {
+        "**/node_modules/**": true,
+        "**/vendor/**": true
+    },
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+        }
+    ],
     "java.compile.nullAnalysis.mode": "automatic",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "java.import.exclusions": [
+        "**/node_modules/**",
+        "**/vendor/**",
+        "**/.git/**"
+    ],
+    "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable",
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true
+    }
 }

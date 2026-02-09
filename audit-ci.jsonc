@@ -1,0 +1,8 @@
+{
+  "high": true,
+  "critical": true,
+  "allowlist": [
+    "GHSA-37qj-frw5-hhjh",
+    "GHSA-mpg4-rc92-vx8v"
+  ]
+}
