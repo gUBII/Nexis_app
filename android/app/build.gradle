@@ -73,7 +73,7 @@ android {
 }
 
 dependencies {
-    implementation("com.facebook.react:react-android:0.71.6") // Specify the React Native version explicitly
+    implementation("com.facebook.react:react-android")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
     implementation platform('com.google.firebase:firebase-bom:33.5.1')
     implementation 'com.google.firebase:firebase-analytics'
@@ -87,7 +87,7 @@ dependencies {
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}")
 
     if (hermesEnabled.toBoolean()) {
-        implementation("com.facebook.react:hermes-android:0.71.6")
+        implementation("com.facebook.react:hermes-android")
     } else {
         implementation("org.webkit:android-jsc:+")
     }
