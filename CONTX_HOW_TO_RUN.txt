@@ -1,0 +1,62 @@
+CONTX HOW TO RUN (TXT RUNBOOK)
+==============================
+Project root: /Users/moofasa/Nexis_app
+
+[PREREQUISITES]
+- Node.js 18
+- npm
+- Android Studio + SDK + emulator/device
+- Xcode (macOS)
+- Ruby >= 2.6.10
+- CocoaPods >= 1.11.3
+
+[INSTALL]
+1) cd /Users/moofasa/Nexis_app
+2) npm install
+3) cd ios
+4) bundle install
+5) bundle exec pod install
+6) cd ..
+
+[RUN METRO]
+- npm start
+
+[RUN ANDROID]
+- npm run android
+
+[RUN IOS]
+- npm run ios
+
+[USEFUL SCRIPTS]
+- npm run lint
+- npm run test
+
+[OPTIONAL CLEAN]
+Android clean:
+- cd android
+- ./gradlew clean
+- cd ..
+
+iOS clean:
+- rm -rf ~/Library/Developer/Xcode/DerivedData
+- cd ios
+- rm -rf Pods Podfile.lock
+- pod install
+- cd ..
+
+[VERIFY FLOW]
+- Splash -> Onboarding -> SignIn/TabNavigator
+- SignIn API call succeeds
+- Dashboard loads jobs/tasks
+- Attendance clock-in/out works with camera + location
+
+[IMPORTANT NOTES]
+- App uses hardcoded API hosts in source.
+- Firebase messaging setup expected for push features.
+- Some development LAN endpoints are still present in code.
+
+See markdown equivalents:
+- CONTX_HOW_TO_RUN.md
+- CONTX_DEPENDENCIES_AND_STACK.md
+- CONTX_NATIVE_ANDROID.md
+- CONTX_NATIVE_IOS.md
