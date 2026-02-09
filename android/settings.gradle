@@ -1,5 +1,10 @@
 rootProject.name = 'app'
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+def nativeModulesGradle = file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+if (!nativeModulesGradle.exists()) {
+    nativeModulesGradle = file("../node_modules/react-native/node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+}
+apply from: nativeModulesGradle
+applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
 
