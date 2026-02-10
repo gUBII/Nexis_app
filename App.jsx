@@ -13,6 +13,7 @@ import { TaskProvider } from './src/constants/TaskContext';
 import { PendingProvider } from './src/constants/PendingContext';
 import { UserProvider } from './src/constants/UserContext';
 import messaging from '@react-native-firebase/messaging';
+import firebase from '@react-native-firebase/app';
 import PushNotification from 'react-native-push-notification';
 import RNLocation from 'react-native-location'
 
@@ -37,26 +38,39 @@ RNLocation.configure({
 })
 
 const App = () => {
-  PushNotification.configure({
-    onNotification: function (notification) {
-      console.log('[LOCAL NOTIF] =>', notification);
-    },
-    requestPermissions: Platform.OS === 'ios',
-  });
-
-  PushNotification.createChannel(
-    {
-      channelId: 'background-location',
-      channelName: 'Background Tracking Alerts',
-      channelDescription: 'A channel for background location updates',
-      soundName: 'default',
-      importance: 4,
-      vibrate: true,
-    },
-    (created) => console.log(`🔔 Notification channel '${created}' created`)
-  );
+  const isFirebaseConfigured = () => {
+    try {
+      return firebase.apps.length > 0;
+    } catch (error) {
+      return false;
+    }
+  };
 
   useEffect(() => {
+    PushNotification.configure({
+      onNotification: function (notification) {
+        console.log('[LOCAL NOTIF] =>', notification);
+      },
+      requestPermissions: Platform.OS === 'ios',
+    });
+
+    PushNotification.createChannel(
+      {
+        channelId: 'background-location',
+        channelName: 'Background Tracking Alerts',
+        channelDescription: 'A channel for background location updates',
+        soundName: 'default',
+        importance: 4,
+        vibrate: true,
+      },
+      (created) => console.log(`🔔 Notification channel '${created}' created`)
+    );
+
+    if (!isFirebaseConfigured()) {
+      console.warn('[Firebase] Default app is not configured. Add GoogleService-Info.plist to ios/app and rebuild.');
+      return undefined;
+    }
+
     requestUserPermission();
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       Alert.alert('New Notification', JSON.stringify(remoteMessage.notification?.body || ''));

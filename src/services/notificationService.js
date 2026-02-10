@@ -1,12 +1,26 @@
 // services/notificationService.js
 
 import messaging from '@react-native-firebase/messaging';
+import firebase from '@react-native-firebase/app';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert } from 'react-native';
 import axios from 'axios';  // Import axios for making HTTP requests
 
+function isFirebaseConfigured() {
+  try {
+    return firebase.apps.length > 0;
+  } catch (error) {
+    return false;
+  }
+}
+
 // Request user permission for push notifications
 export async function requestUserPermission() {
+  if (!isFirebaseConfigured()) {
+    console.warn('[Firebase] requestUserPermission skipped because default app is not configured.');
+    return;
+  }
+
   const authStatus = await messaging().requestPermission();
   const enabled =
     authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
@@ -19,6 +33,11 @@ export async function requestUserPermission() {
 
 // Retrieve FCM Token, save it in AsyncStorage, and return it
 export async function getFcmToken() {
+  if (!isFirebaseConfigured()) {
+    console.warn('[Firebase] getFcmToken skipped because default app is not configured.');
+    return null;
+  }
+
   try {
     // Check if the token is already saved in AsyncStorage
     const storedToken = await AsyncStorage.getItem('fcmToken');
@@ -72,6 +91,11 @@ export async function saveFcmTokenToServer(fcmToken) {
 
 // Handle foreground notifications
 export function onForegroundNotification() {
+  if (!isFirebaseConfigured()) {
+    console.warn('[Firebase] onForegroundNotification skipped because default app is not configured.');
+    return () => {};
+  }
+
   return messaging().onMessage(async remoteMessage => {
     Alert.alert('New FCM Message!', JSON.stringify(remoteMessage.notification));
   });
@@ -79,6 +103,11 @@ export function onForegroundNotification() {
 
 // Handle background notifications
 export function onBackgroundNotification() {
+  if (!isFirebaseConfigured()) {
+    console.warn('[Firebase] onBackgroundNotification skipped because default app is not configured.');
+    return;
+  }
+
   messaging().setBackgroundMessageHandler(async remoteMessage => {
     console.log('Message handled in the background!', remoteMessage);
   });

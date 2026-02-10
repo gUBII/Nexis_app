@@ -1,11 +1,21 @@
 #import "AppDelegate.h"
 
+#import <FirebaseCore/FirebaseCore.h>
 #import <React/RCTBundleURLProvider.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  if ([FIRApp defaultApp] == nil) {
+    NSString *googleServicePath = [[NSBundle mainBundle] pathForResource:@"GoogleService-Info" ofType:@"plist"];
+    if (googleServicePath != nil) {
+      [FIRApp configure];
+    } else {
+      NSLog(@"[Firebase] GoogleService-Info.plist not found. Firebase is not configured for iOS.");
+    }
+  }
+
   self.moduleName = @"app";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
