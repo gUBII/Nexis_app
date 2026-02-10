@@ -1,0 +1,641 @@
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.classpath b/node_modules/@react-native-community/datetimepicker/android/.classpath
+new file mode 100644
+index 0000000..bbe97e5
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/.classpath
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<classpath>
++	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/"/>
++	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
++	<classpathentry kind="output" path="bin/default"/>
++</classpath>
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/checksums/checksums.lock b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/checksums/checksums.lock
+new file mode 100644
+index 0000000..9f69e0a
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/checksums/checksums.lock differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/dependencies-accessors/gc.properties b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/dependencies-accessors/gc.properties
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/fileChanges/last-build.bin b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/fileChanges/last-build.bin
+new file mode 100644
+index 0000000..f76dd23
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/fileChanges/last-build.bin differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/fileHashes/fileHashes.lock b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/fileHashes/fileHashes.lock
+new file mode 100644
+index 0000000..3e26e95
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/fileHashes/fileHashes.lock differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/gc.properties b/node_modules/@react-native-community/datetimepicker/android/.gradle/8.9/gc.properties
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock b/node_modules/@react-native-community/datetimepicker/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+new file mode 100644
+index 0000000..735cdb2
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/buildOutputCleanup/cache.properties b/node_modules/@react-native-community/datetimepicker/android/.gradle/buildOutputCleanup/cache.properties
+new file mode 100644
+index 0000000..95fa98d
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/.gradle/buildOutputCleanup/cache.properties
+@@ -0,0 +1,2 @@
++#Tue Feb 10 09:03:32 AEDT 2026
++gradle.version=8.9
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.gradle/vcs-1/gc.properties b/node_modules/@react-native-community/datetimepicker/android/.gradle/vcs-1/gc.properties
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.project b/node_modules/@react-native-community/datetimepicker/android/.project
+new file mode 100644
+index 0000000..7fddf63
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/.project
+@@ -0,0 +1,34 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>react-native-community_datetimepicker</name>
++	<comment>Project react-native-community_datetimepicker created by Buildship.</comment>
++	<projects>
++	</projects>
++	<buildSpec>
++		<buildCommand>
++			<name>org.eclipse.jdt.core.javabuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++		<buildCommand>
++			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++	</buildSpec>
++	<natures>
++		<nature>org.eclipse.jdt.core.javanature</nature>
++		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
++	</natures>
++	<filteredResources>
++		<filter>
++			<id>1770671694818</id>
++			<name></name>
++			<type>30</type>
++			<matcher>
++				<id>org.eclipse.core.resources.regexFilterMatcher</id>
++				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
++			</matcher>
++		</filter>
++	</filteredResources>
++</projectDescription>
+diff --git a/node_modules/@react-native-community/datetimepicker/android/.settings/org.eclipse.buildship.core.prefs b/node_modules/@react-native-community/datetimepicker/android/.settings/org.eclipse.buildship.core.prefs
+new file mode 100644
+index 0000000..0661993
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/.settings/org.eclipse.buildship.core.prefs
+@@ -0,0 +1,13 @@
++arguments=--init-script /var/folders/fv/jw770p5d7397f1hdbh2fypy40000gn/T/db3b08fc4a9ef609cb16b96b200fa13e563f396e9bb1ed0905fdab7bc3bc513b.gradle --init-script /var/folders/fv/jw770p5d7397f1hdbh2fypy40000gn/T/52cde0cfcf3e28b8b7510e992210d9614505e0911af0c190bd590d7158574963.gradle
++auto.sync=true
++build.scans.enabled=false
++connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(8.9))
++connection.project.dir=../../../../android
++eclipse.preferences.version=1
++gradle.user.home=
++java.home=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
++jvm.arguments=
++offline.mode=false
++override.workspace.settings=true
++show.console.view=true
++show.executions.view=true
+diff --git a/node_modules/@react-native-community/datetimepicker/android/bin/.project b/node_modules/@react-native-community/datetimepicker/android/bin/.project
+new file mode 100644
+index 0000000..7fddf63
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/bin/.project
+@@ -0,0 +1,34 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<projectDescription>
++	<name>react-native-community_datetimepicker</name>
++	<comment>Project react-native-community_datetimepicker created by Buildship.</comment>
++	<projects>
++	</projects>
++	<buildSpec>
++		<buildCommand>
++			<name>org.eclipse.jdt.core.javabuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++		<buildCommand>
++			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
++			<arguments>
++			</arguments>
++		</buildCommand>
++	</buildSpec>
++	<natures>
++		<nature>org.eclipse.jdt.core.javanature</nature>
++		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
++	</natures>
++	<filteredResources>
++		<filter>
++			<id>1770671694818</id>
++			<name></name>
++			<type>30</type>
++			<matcher>
++				<id>org.eclipse.core.resources.regexFilterMatcher</id>
++				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
++			</matcher>
++		</filter>
++	</filteredResources>
++</projectDescription>
+diff --git a/node_modules/@react-native-community/datetimepicker/android/bin/build.gradle b/node_modules/@react-native-community/datetimepicker/android/bin/build.gradle
+new file mode 100644
+index 0000000..7f6a376
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/bin/build.gradle
+@@ -0,0 +1,34 @@
++apply plugin: 'com.android.library'
++
++def safeExtGet(prop, fallback) {
++  def retValue = rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
++  return retValue
++}
++
++android {
++    compileSdkVersion safeExtGet('compileSdkVersion', 28)
++    buildToolsVersion safeExtGet('buildToolsVersion', '28.0.3')
++
++    defaultConfig {
++        minSdkVersion safeExtGet('minSdkVersion', 21)
++        targetSdkVersion safeExtGet('targetSdkVersion', 28)
++        versionCode 1
++        versionName "1.0"
++    }
++    lintOptions {
++        abortOnError false
++    }
++}
++
++repositories {
++  mavenLocal()
++  maven {
++    // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
++    url("$rootDir/../node_modules/react-native/android")
++  }
++  google()
++}
++
++dependencies {
++  implementation "com.facebook.react:react-native:+" // From node_modules
++}
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/.transforms/40d74188e0d762b903093f01868c3eec/results.bin b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/40d74188e0d762b903093f01868c3eec/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/40d74188e0d762b903093f01868c3eec/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/.transforms/40d74188e0d762b903093f01868c3eec/transformed/classes/classes_dex/classes.dex b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/40d74188e0d762b903093f01868c3eec/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..36484f4
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/40d74188e0d762b903093f01868c3eec/transformed/classes/classes_dex/classes.dex differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/.transforms/4cd0f782e0f1cba994f1681351378393/results.bin b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/4cd0f782e0f1cba994f1681351378393/results.bin
+new file mode 100644
+index 0000000..e3f0ff0
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/4cd0f782e0f1cba994f1681351378393/results.bin
+@@ -0,0 +1 @@
++i/classes_global-synthetics
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/.transforms/f2b18ba9f3e1bc69f50b0f814db4aa83/results.bin b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/f2b18ba9f3e1bc69f50b0f814db4aa83/results.bin
+new file mode 100644
+index 0000000..61a58fa
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/.transforms/f2b18ba9f3e1bc69f50b0f814db4aa83/results.bin
+@@ -0,0 +1 @@
++i/classes_dex
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/generated/source/buildConfig/debug/com/reactcommunity/rndatetimepicker/BuildConfig.java b/node_modules/@react-native-community/datetimepicker/android/build/generated/source/buildConfig/debug/com/reactcommunity/rndatetimepicker/BuildConfig.java
+new file mode 100644
+index 0000000..4bfed92
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/generated/source/buildConfig/debug/com/reactcommunity/rndatetimepicker/BuildConfig.java
+@@ -0,0 +1,10 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package com.reactcommunity.rndatetimepicker;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = Boolean.parseBoolean("true");
++  public static final String LIBRARY_PACKAGE_NAME = "com.reactcommunity.rndatetimepicker";
++  public static final String BUILD_TYPE = "debug";
++}
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml
+new file mode 100644
+index 0000000..1f9bc09
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.reactcommunity.rndatetimepicker" >
++
++    <uses-sdk android:minSdkVersion="23" />
++
++    <application />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/output-metadata.json b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/output-metadata.json
+new file mode 100644
+index 0000000..22fbcd3
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/output-metadata.json
+@@ -0,0 +1,18 @@
++{
++  "version": 3,
++  "artifactType": {
++    "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
++    "kind": "Directory"
++  },
++  "applicationId": "com.reactcommunity.rndatetimepicker",
++  "variantName": "debug",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "attributes": [],
++      "outputFile": "AndroidManifest.xml"
++    }
++  ],
++  "elementType": "File"
++}
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aar_metadata/debug/aar-metadata.properties b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aar_metadata/debug/aar-metadata.properties
+new file mode 100644
+index 0000000..776557e
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/aar_metadata/debug/aar-metadata.properties
+@@ -0,0 +1,5 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/annotation_processor_list/debug/annotationProcessors.json b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/annotation_processor_list/debug/annotationProcessors.json
+new file mode 100644
+index 0000000..9e26dfe
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/annotation_processor_list/debug/annotationProcessors.json
+@@ -0,0 +1 @@
++{}
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_library_classes_jar/debug/classes.jar b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_library_classes_jar/debug/classes.jar
+new file mode 100644
+index 0000000..9e732c6
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_library_classes_jar/debug/classes.jar differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_r_class_jar/debug/R.jar b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_r_class_jar/debug/R.jar
+new file mode 100644
+index 0000000..fd32198
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_r_class_jar/debug/R.jar differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_symbol_list/debug/R.txt b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_symbol_list/debug/R.txt
+new file mode 100644
+index 0000000..89c6640
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/compile_symbol_list/debug/R.txt
+@@ -0,0 +1,6 @@
++int style SpinnerDatePickerDialog 0x0
++int style SpinnerDatePickerDialogBase 0x0
++int style SpinnerDatePickerStyle 0x0
++int style SpinnerTimePickerDialog 0x0
++int style SpinnerTimePickerDialogBase 0x0
++int style SpinnerTimePickerStyle 0x0
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+new file mode 100644
+index 0000000..c3362cf
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Tue Feb 10 10:51:29 AEDT 2026
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values-night-v8/values-night-v8.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values-night-v8/values-night-v8.xml
+new file mode 100644
+index 0000000..901fc42
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values-night-v8/values-night-v8.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <style name="SpinnerDatePickerDialog" parent="SpinnerDatePickerDialogBase">
++		<item name="android:windowBackground">#424242</item>
++	</style>
++    <style name="SpinnerTimePickerDialog" parent="SpinnerTimePickerDialogBase">
++		<item name="android:windowBackground">#424242</item>
++	</style>
++</resources>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml
+new file mode 100644
+index 0000000..fc05705
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources xmlns:ns1="http://schemas.android.com/tools">
++    <style name="SpinnerDatePickerDialog" parent="SpinnerDatePickerDialogBase"/>
++    <style name="SpinnerDatePickerDialogBase" parent="Theme.AppCompat.DayNight.Dialog" ns1:targetApi="lollipop">
++        <item name="android:datePickerStyle">@style/SpinnerDatePickerStyle</item>
++    </style>
++    <style name="SpinnerDatePickerStyle" parent="android:Widget.Material.DatePicker" ns1:targetApi="lollipop">
++        <item name="android:datePickerMode">spinner</item>
++    </style>
++    <style name="SpinnerTimePickerDialog" parent="SpinnerTimePickerDialogBase"/>
++    <style name="SpinnerTimePickerDialogBase" parent="Theme.AppCompat.DayNight.Dialog" ns1:targetApi="lollipop">
++        <item name="android:timePickerStyle">@style/SpinnerTimePickerStyle</item>
++    </style>
++    <style name="SpinnerTimePickerStyle" parent="android:Widget.Material.TimePicker" ns1:targetApi="lollipop">
++        <item name="android:timePickerMode">spinner</item>
++    </style>
++</resources>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+new file mode 100644
+index 0000000..2f0e92f
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3" xmlns:ns1="http://schemas.android.com/tools"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/res"><file path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/res/values-night/styles.xml" qualifiers="night-v8"><style name="SpinnerDatePickerDialog" parent="SpinnerDatePickerDialogBase">
++		<item name="android:windowBackground">#424242</item>
++	</style><style name="SpinnerTimePickerDialog" parent="SpinnerTimePickerDialogBase">
++		<item name="android:windowBackground">#424242</item>
++	</style></file><file path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/res/values/styles.xml" qualifiers=""><style name="SpinnerDatePickerDialogBase" ns1:targetApi="lollipop" parent="Theme.AppCompat.DayNight.Dialog">
++        <item name="android:datePickerStyle">@style/SpinnerDatePickerStyle</item>
++    </style><style name="SpinnerDatePickerDialog" parent="SpinnerDatePickerDialogBase"/><style name="SpinnerDatePickerStyle" ns1:targetApi="lollipop" parent="android:Widget.Material.DatePicker">
++        <item name="android:datePickerMode">spinner</item>
++    </style><style name="SpinnerTimePickerDialogBase" ns1:targetApi="lollipop" parent="Theme.AppCompat.DayNight.Dialog">
++        <item name="android:timePickerStyle">@style/SpinnerTimePickerStyle</item>
++    </style><style name="SpinnerTimePickerDialog" parent="SpinnerTimePickerDialogBase"/><style name="SpinnerTimePickerStyle" ns1:targetApi="lollipop" parent="android:Widget.Material.TimePicker">
++        <item name="android:timePickerMode">spinner</item>
++    </style></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+new file mode 100644
+index 0000000..c739f05
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/debug/jniLibs"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/mergeDebugShaders/merger.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+new file mode 100644
+index 0000000..768725c
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/debug/shaders"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/packageDebugAssets/merger.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/packageDebugAssets/merger.xml
+new file mode 100644
+index 0000000..03f2304
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/incremental/packageDebugAssets/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/assets"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/debug/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/build/intermediates/shader_assets/debug/out"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/BuildConfig.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/BuildConfig.class
+new file mode 100644
+index 0000000..b58c45f
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/BuildConfig.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/Common$1.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/Common$1.class
+new file mode 100644
+index 0000000..677f7a6
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/Common$1.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/Common.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/Common.class
+new file mode 100644
+index 0000000..e01e9fd
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/Common.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/KeepDateInRangeListener.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/KeepDateInRangeListener.class
+new file mode 100644
+index 0000000..f666804
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/KeepDateInRangeListener.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/MinuteIntervalSnappableTimePickerDialog$1.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/MinuteIntervalSnappableTimePickerDialog$1.class
+new file mode 100644
+index 0000000..128f418
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/MinuteIntervalSnappableTimePickerDialog$1.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/MinuteIntervalSnappableTimePickerDialog.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/MinuteIntervalSnappableTimePickerDialog.class
+new file mode 100644
+index 0000000..87c34e0
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/MinuteIntervalSnappableTimePickerDialog.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNConstants.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNConstants.class
+new file mode 100644
+index 0000000..d75d66e
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNConstants.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDate.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDate.class
+new file mode 100644
+index 0000000..f512aa3
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDate.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogFragment.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogFragment.class
+new file mode 100644
+index 0000000..90dd21b
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogFragment.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule$1.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule$1.class
+new file mode 100644
+index 0000000..c1863a5
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule$1.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule$DatePickerDialogListener.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule$DatePickerDialogListener.class
+new file mode 100644
+index 0000000..2cd128a
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule$DatePickerDialogListener.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule.class
+new file mode 100644
+index 0000000..793bc7e
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDialogModule.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDisplay.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDisplay.class
+new file mode 100644
+index 0000000..295ec91
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDatePickerDisplay.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDateTimePickerPackage.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDateTimePickerPackage.class
+new file mode 100644
+index 0000000..d17e959
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDateTimePickerPackage.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDismissableDatePickerDialog.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDismissableDatePickerDialog.class
+new file mode 100644
+index 0000000..ab6755a
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDismissableDatePickerDialog.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDismissableTimePickerDialog.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDismissableTimePickerDialog.class
+new file mode 100644
+index 0000000..8f56970
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNDismissableTimePickerDialog.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogFragment.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogFragment.class
+new file mode 100644
+index 0000000..c547bbf
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogFragment.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule$1.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule$1.class
+new file mode 100644
+index 0000000..0430916
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule$1.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule$TimePickerDialogListener.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule$TimePickerDialogListener.class
+new file mode 100644
+index 0000000..6ff00e8
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule$TimePickerDialogListener.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule.class
+new file mode 100644
+index 0000000..ac3625f
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDialogModule.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDisplay.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDisplay.class
+new file mode 100644
+index 0000000..a345d1f
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/RNTimePickerDisplay.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/ReflectionHelper.class b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/ReflectionHelper.class
+new file mode 100644
+index 0000000..9c8d480
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/javac/debug/classes/com/reactcommunity/rndatetimepicker/ReflectionHelper.class differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/local_only_symbol_list/debug/R-def.txt b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/local_only_symbol_list/debug/R-def.txt
+new file mode 100644
+index 0000000..463aea4
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/local_only_symbol_list/debug/R-def.txt
+@@ -0,0 +1,8 @@
++R_DEF: Internal format may change without notice
++local
++style SpinnerDatePickerDialog
++style SpinnerDatePickerDialogBase
++style SpinnerDatePickerStyle
++style SpinnerTimePickerDialog
++style SpinnerTimePickerDialogBase
++style SpinnerTimePickerStyle
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt
+new file mode 100644
+index 0000000..eea1d62
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt
+@@ -0,0 +1,10 @@
++1<?xml version="1.0" encoding="utf-8"?>
++2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++3    package="com.reactcommunity.rndatetimepicker" >
++4
++5    <uses-sdk android:minSdkVersion="23" />
++6
++7    <application />
++7-->/Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml:2:3-18
++8
++9</manifest>
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml
+new file mode 100644
+index 0000000..1f9bc09
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.reactcommunity.rndatetimepicker" >
++
++    <uses-sdk android:minSdkVersion="23" />
++
++    <application />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/navigation_json/debug/navigation.json b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/navigation_json/debug/navigation.json
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/navigation_json/debug/navigation.json
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values-night-v8/values-night-v8.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values-night-v8/values-night-v8.xml
+new file mode 100644
+index 0000000..901fc42
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values-night-v8/values-night-v8.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <style name="SpinnerDatePickerDialog" parent="SpinnerDatePickerDialogBase">
++		<item name="android:windowBackground">#424242</item>
++	</style>
++    <style name="SpinnerTimePickerDialog" parent="SpinnerTimePickerDialogBase">
++		<item name="android:windowBackground">#424242</item>
++	</style>
++</resources>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values/values.xml b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values/values.xml
+new file mode 100644
+index 0000000..fc05705
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/packaged_res/debug/values/values.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources xmlns:ns1="http://schemas.android.com/tools">
++    <style name="SpinnerDatePickerDialog" parent="SpinnerDatePickerDialogBase"/>
++    <style name="SpinnerDatePickerDialogBase" parent="Theme.AppCompat.DayNight.Dialog" ns1:targetApi="lollipop">
++        <item name="android:datePickerStyle">@style/SpinnerDatePickerStyle</item>
++    </style>
++    <style name="SpinnerDatePickerStyle" parent="android:Widget.Material.DatePicker" ns1:targetApi="lollipop">
++        <item name="android:datePickerMode">spinner</item>
++    </style>
++    <style name="SpinnerTimePickerDialog" parent="SpinnerTimePickerDialogBase"/>
++    <style name="SpinnerTimePickerDialogBase" parent="Theme.AppCompat.DayNight.Dialog" ns1:targetApi="lollipop">
++        <item name="android:timePickerStyle">@style/SpinnerTimePickerStyle</item>
++    </style>
++    <style name="SpinnerTimePickerStyle" parent="android:Widget.Material.TimePicker" ns1:targetApi="lollipop">
++        <item name="android:timePickerMode">spinner</item>
++    </style>
++</resources>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/runtime_library_classes_jar/debug/classes.jar b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/runtime_library_classes_jar/debug/classes.jar
+new file mode 100644
+index 0000000..74f4c52
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/runtime_library_classes_jar/debug/classes.jar differ
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt
+new file mode 100644
+index 0000000..8d417de
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt
+@@ -0,0 +1,7 @@
++com.reactcommunity.rndatetimepicker
++style SpinnerDatePickerDialog
++style SpinnerDatePickerDialogBase
++style SpinnerDatePickerStyle
++style SpinnerTimePickerDialog
++style SpinnerTimePickerDialogBase
++style SpinnerTimePickerStyle
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/@react-native-community/datetimepicker/android/build/outputs/logs/manifest-merger-debug-report.txt
+new file mode 100644
+index 0000000..3aa8242
+--- /dev/null
++++ b/node_modules/@react-native-community/datetimepicker/android/build/outputs/logs/manifest-merger-debug-report.txt
+@@ -0,0 +1,19 @@
++-- Merging decision tree log ---
++manifest
++ADDED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml:1:1-3:12
++INJECTED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml:1:1-3:12
++	package
++		ADDED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml:1:70-115
++		INJECTED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml
++	xmlns:android
++		ADDED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml:1:11-69
++application
++ADDED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml:2:3-18
++uses-sdk
++INJECTED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml
++INJECTED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml
++	android:targetSdkVersion
++		INJECTED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml
++	android:minSdkVersion
++		INJECTED from /Users/moofasa/Nexis_app/node_modules/@react-native-community/datetimepicker/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/@react-native-community/datetimepicker/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/@react-native-community/datetimepicker/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
+new file mode 100644
+index 0000000..5cab271
+Binary files /dev/null and b/node_modules/@react-native-community/datetimepicker/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/@react-native-community/datetimepicker/ios/RNDateTimePickerShadowView.m b/node_modules/@react-native-community/datetimepicker/ios/RNDateTimePickerShadowView.m
+index ba0273b..f5b091c 100644
+--- a/node_modules/@react-native-community/datetimepicker/ios/RNDateTimePickerShadowView.m
++++ b/node_modules/@react-native-community/datetimepicker/ios/RNDateTimePickerShadowView.m
+@@ -31,7 +31,7 @@
+   YGNodeMarkDirty(self.yogaNode);
+ }
+ 
+-static YGSize RNDateTimePickerShadowViewMeasure(YGNodeRef node, float width, YGMeasureMode widthMode, float height, YGMeasureMode heightMode)
++static YGSize RNDateTimePickerShadowViewMeasure(YGNodeConstRef node, float width, YGMeasureMode widthMode, float height, YGMeasureMode heightMode)
+ {
+   RNDateTimePickerShadowView *shadowPickerView = (__bridge RNDateTimePickerShadowView *)YGNodeGetContext(node);
+ 

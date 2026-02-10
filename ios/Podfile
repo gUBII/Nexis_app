@@ -1,9 +1,12 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+begin
+  require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+rescue LoadError
+  require_relative '../node_modules/react-native/node_modules/@react-native-community/cli-platform-ios/native_modules'
+end
 
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
-use_modular_headers!
 
 # If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
 # because `react-native-flipper` depends on (FlipperKit,...) that will be excluded
@@ -24,6 +27,8 @@ end
 
 target 'app' do
   config = use_native_modules!
+  pod 'GoogleUtilities', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
 
   # Flags change depending on the env values.
   flags = get_default_flags()

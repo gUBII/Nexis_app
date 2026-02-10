@@ -36,7 +36,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Your location is required to track your position at all times.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>We are verifying you are still at the shift</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Description of why you require the use of the microphone</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
