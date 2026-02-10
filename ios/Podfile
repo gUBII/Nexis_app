@@ -4,6 +4,15 @@ begin
 rescue LoadError
   require_relative '../node_modules/react-native/node_modules/@react-native-community/cli-platform-ios/native_modules'
 end
+require_relative '../node_modules/react-native-permissions/scripts/setup'
+
+setup_permissions([
+  'LocationAlways',
+  'LocationWhenInUse',
+  'Microphone',
+  'Notifications',
+  'SpeechRecognition',
+])
 
 platform :ios, min_ios_version_supported
 prepare_react_native_project!
