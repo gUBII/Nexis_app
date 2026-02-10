@@ -6,73 +6,62 @@
 </div>
 
 ## 1. Core Files
-- `ios/Podfile`
-- `ios/app/AppDelegate.mm`
-- `ios/app/Info.plist`
-- `ios/app.xcodeproj/project.pbxproj`
-- `ios/app.xcodeproj/xcshareddata/xcschemes/app.xcscheme`
+- `/Users/moofasa/Nexis_app/ios/Podfile`
+- `/Users/moofasa/Nexis_app/ios/app/AppDelegate.mm`
+- `/Users/moofasa/Nexis_app/ios/app/Info.plist`
+- `/Users/moofasa/Nexis_app/ios/app.xcodeproj/project.pbxproj`
 
-## 2. Podfile Summary
-- Uses RN helper scripts:
-  - `react_native_pods`
-  - `@react-native-community/cli-platform-ios/native_modules`
-- Flipper configurable via `NO_FLIPPER` env.
-- `use_react_native!` with Hermes/Fabric flags from RN defaults.
-- Includes post-install RN hooks and M1 workaround.
+## 2. Podfile Snapshot
+- Uses RN helper scripts with fallback for nested CLI path.
+- Includes RN permissions setup script:
+  - `require_relative '../node_modules/react-native-permissions/scripts/setup'`
+- `setup_permissions` currently enables handlers:
+  - `LocationAlways`, `LocationWhenInUse`, `Microphone`, `Notifications`, `SpeechRecognition`
+- Flipper is disabled via `FlipperConfiguration.disabled`.
+- Uses `FirebaseCore` and `GoogleUtilities` as modular headers.
 
-## 3. App Delegate Summary
-`AppDelegate.mm` behavior:
-- Sets `moduleName = "app"`.
-- Uses bundle URL from Metro in debug and `main.jsbundle` in release.
-- `concurrentRootEnabled` returns `true`.
+## 3. AppDelegate Snapshot
+`AppDelegate.mm` now includes defensive Firebase init:
+- Checks if Firebase default app exists.
+- Looks for `GoogleService-Info.plist` in bundle.
+- Calls `[FIRApp configure]` only when plist exists.
+- Logs warning if missing plist (avoids hard crash path).
 
-## 4. Info.plist Runtime Declarations
-Observed important keys:
-- Location usage descriptions (`NSLocationWhenInUseUsageDescription`, `NSLocationAlwaysUsageDescription`, `NSLocationAlwaysAndWhenInUseUsageDescription`)
-- Background modes include:
-  - `location`
-  - `fetch`
-- Microphone/Speech usage descriptions present.
-- App transport exceptions for `localhost` insecure HTTP loads.
-- Custom fonts listed under `UIAppFonts`.
+## 4. Info.plist Runtime Permissions
+Key declarations present:
+- `NSLocationAlwaysAndWhenInUseUsageDescription`
+- `NSLocationAlwaysUsageDescription`
+- `NSLocationWhenInUseUsageDescription`
+- `NSMicrophoneUsageDescription`
+- `NSSpeechRecognitionUsageDescription`
+- `UIBackgroundModes`: `location`, `fetch`
 
-Observation:
-- Duplicate/repeated location keys appear in plist and one later `NSLocationWhenInUseUsageDescription` is empty.
+## 5. Physical Device Signing Notes
+If Xcode shows bundle registration failure:
+- Ensure `PRODUCT_BUNDLE_IDENTIFIER` is globally unique for your personal team.
+- Keep `Automatically manage signing` enabled.
 
-## 5. iOS Runtime Integration Notes
-- iOS side is mostly standard RN bootstrap; most behavior is implemented in JS.
-- Background/location/notification runtime behaviors depend heavily on JS module handling and permissions.
-
-## 6. Build + Run Commands
-Install pods:
+## 6. iOS Build Commands
 ```bash
 cd /Users/moofasa/Nexis_app/ios
 bundle install
 bundle exec pod install
+
+cd /Users/moofasa/Nexis_app
+npx react-native run-ios --device "Farhan’s iPhone"
 ```
 
-Run app:
+## 7. iOS Runtime Troubleshooting
+Permission handler error path:
 ```bash
 cd /Users/moofasa/Nexis_app
-npm run ios
-```
-
-## 7. iOS Troubleshooting
-If Xcode build errors persist:
-```bash
+rm -rf ios/Pods ios/Podfile.lock
+cd ios && bundle exec pod install && cd ..
 rm -rf ~/Library/Developer/Xcode/DerivedData
-cd /Users/moofasa/Nexis_app/ios
-rm -rf Pods Podfile.lock
-pod install
-cd /Users/moofasa/Nexis_app
-npm run ios
 ```
+Then uninstall/reinstall app.
 
-## 8. iOS Layer Visual
-```mermaid
-flowchart TD
-    A["AppDelegate.mm"] --> B["React Bridge"]
-    B --> C["App.jsx Providers + Navigation"]
-    C --> D["JS Feature Modules"]
-    D --> E["Location / Background / Messaging"]
-```
+Firebase default app error path:
+- Add `ios/app/GoogleService-Info.plist`
+- Rebuild app from Xcode or CLI.
+

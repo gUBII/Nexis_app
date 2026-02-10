@@ -3,12 +3,11 @@ CONTX HOW TO RUN (TXT RUNBOOK)
 Project root: /Users/moofasa/Nexis_app
 
 [PREREQUISITES]
-- Node.js 18
+- Node.js 18 (recommended)
 - npm
 - Android Studio + SDK + emulator/device
-- Xcode (macOS)
-- Ruby >= 2.6.10
-- CocoaPods >= 1.11.3
+- Xcode
+- Ruby + Bundler + CocoaPods (via ios/Gemfile)
 
 [INSTALL]
 1) cd /Users/moofasa/Nexis_app
@@ -18,7 +17,7 @@ Project root: /Users/moofasa/Nexis_app
 5) bundle exec pod install
 6) cd ..
 
-[RUN METRO]
+[START METRO]
 - npm start
 
 [RUN ANDROID]
@@ -26,37 +25,25 @@ Project root: /Users/moofasa/Nexis_app
 
 [RUN IOS]
 - npm run ios
+- physical device example:
+  npx react-native run-ios --device "Farhan’s iPhone"
 
-[USEFUL SCRIPTS]
-- npm run lint
-- npm run test
+[IOS REQUIRED NOTES]
+- Use a unique bundle id in Xcode Signing.
+- Add ios/app/GoogleService-Info.plist to enable Firebase default app on iOS.
+- If "No permission handler detected":
+  - reinstall pods
+  - clear DerivedData
+  - uninstall/reinstall app
 
-[OPTIONAL CLEAN]
-Android clean:
-- cd android
-- ./gradlew clean
-- cd ..
+[CLEAN]
+Android:
+- cd android && ./gradlew clean && cd ..
 
-iOS clean:
+iOS:
 - rm -rf ~/Library/Developer/Xcode/DerivedData
-- cd ios
-- rm -rf Pods Podfile.lock
-- pod install
-- cd ..
+- cd ios && rm -rf Pods Podfile.lock && bundle exec pod install && cd ..
 
-[VERIFY FLOW]
-- Splash -> Onboarding -> SignIn/TabNavigator
-- SignIn API call succeeds
-- Dashboard loads jobs/tasks
-- Attendance clock-in/out works with camera + location
+[CURRENT AUDIT STATE]
+- 1 high vulnerability remains (fast-xml-parser transitive under RN CLI tree).
 
-[IMPORTANT NOTES]
-- App uses hardcoded API hosts in source.
-- Firebase messaging setup expected for push features.
-- Some development LAN endpoints are still present in code.
-
-See markdown equivalents:
-- CONTX_HOW_TO_RUN.md
-- CONTX_DEPENDENCIES_AND_STACK.md
-- CONTX_NATIVE_ANDROID.md
-- CONTX_NATIVE_IOS.md

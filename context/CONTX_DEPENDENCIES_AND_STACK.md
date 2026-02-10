@@ -2,15 +2,15 @@
 
 <div align="center">
   <span style="background:#0f172a;color:#fff;padding:4px 10px;border-radius:999px;font-weight:700;">STACK PROFILE</span>
-  <span style="background:#0369a1;color:#fff;padding:4px 10px;border-radius:999px;font-weight:700;">DEPENDENCY GROUPED</span>
+  <span style="background:#0369a1;color:#fff;padding:4px 10px;border-radius:999px;font-weight:700;">CURRENT SNAPSHOT</span>
 </div>
 
 ## 1. Runtime Platform Versions
 - React: `18.2.0`
-- React Native: `0.71.6`
-- Node target: `18` (`.node-version`)
-- Android Gradle Plugin: `7.3.1`
-- Android compile/target SDK: `33`
+- React Native: `0.73.x` (`0.73.11` resolved)
+- Node target: `18` (recommended)
+- Android compile/target SDK: `34`
+- Min SDK: `23`
 - Hermes: enabled
 
 ## 2. Dependency Groups
@@ -23,27 +23,25 @@
 - `@reduxjs/toolkit`
 - `react-redux`
 
-### Data and validation
-- `axios`
+### Data + forms + storage
+- `axios@1.13.5`
 - `@react-native-async-storage/async-storage`
 - `formik`
 - `yup`
 - `uuid`
 - `react-native-uuid`
 
-### UI and rendering
+### UI + rendering
 - `react-native-paper`
 - `react-native-svg`
 - `react-native-vector-icons`
 - `react-native-fast-image`
-- `react-native-keyboard-aware-scroll-view`
 - `react-native-linear-gradient`
 - `react-native-modal`
 - `react-native-snap-carousel`
-- `react-native-responsive-dimensions`
 - `@gorhom/bottom-sheet`
 
-### File/media/document
+### Device/file/media
 - `react-native-image-picker`
 - `react-native-document-picker`
 - `react-native-file-viewer`
@@ -51,72 +49,48 @@
 - `react-native-html-to-pdf`
 - `react-native-share`
 
-### Location/background
-- `@react-native-community/geolocation`
+### Location/background/permissions
 - `react-native-location`
 - `react-native-background-fetch`
 - `react-native-background-actions`
 - `@supersami/rn-foreground-service`
 - `react-native-permissions`
+- `@react-native-community/geolocation`
 - `@react-native-community/netinfo`
 
 ### Messaging/notifications
-- `@react-native-firebase/app`
-- `@react-native-firebase/messaging`
+- `@react-native-firebase/app@^20.0.0`
+- `@react-native-firebase/messaging@^20.0.0`
 - `react-native-push-notification`
+- `@react-native-community/push-notification-ios@1.12.0`
 
 ### Web and voice
 - `react-native-webview`
-- `@react-native-voice/voice`
+- `@react-native-voice/voice@^3.1.5`
 
 ## 3. Dev Toolchain
-- Babel/Jest/TS lint stack present:
-  - `@babel/core`, `babel-jest`
-  - `jest`, `react-test-renderer`
-  - `typescript` (but codebase is primarily JS)
-  - `eslint`, `@react-native-community/eslint-config`
-  - `prettier`
+- `@react-native/metro-config`
+- Babel/Jest/ESLint/TypeScript toolchain
+- `audit-ci`
+- `patch-package`
 
-## 4. Script Surface
-From `package.json`:
-- `android`: run Android app
-- `ios`: run iOS app
-- `start`: Metro
-- `lint`: ESLint
-- `test`: Jest
+## 4. Script Surface (`package.json`)
+- `android`: `react-native run-android`
+- `ios`: `react-native run-ios`
+- `start`: `react-native start`
+- `lint`: `eslint .`
+- `test`: `jest`
+- `audit:ci`: `audit-ci --config ./audit-ci.jsonc`
+- `postinstall`: `patch-package`
 
-## 5. Native Packaging Notes
-### Android
-- Uses Firebase BOM and explicit analytics/messaging dependency.
-- Applies `com.google.gms.google-services` plugin.
+## 5. Current Dependency Security Note
+- `npm audit --omit=dev` currently reports:
+  - `1 high` advisory (`GHSA-37qj-frw5-hhjh`)
+- Path is transitive under RN CLI tree:
+  - `react-native -> @react-native-community/cli-platform-android/ios -> fast-xml-parser@4.5.3`
+- Direct app dependency includes `fast-xml-parser@5.3.5`, but this does not replace RN’s nested transitive copy.
 
-### iOS
-- Podfile uses default RN pod integration with optional Flipper.
-- Hermes/fabric flags from RN defaults.
+## 6. Removed/Deprecated Prior Claims (No Longer True)
+- App dependency set no longer includes earlier junk entries like `"-"`, `pod`, `force`.
+- Baseline is no longer RN `0.71.6`.
 
-## 6. Dependency Hygiene Observations
-Potential cleanup candidates:
-- `"-": "^0.0.1"` appears invalid/suspicious.
-- `pod` and `force` in npm deps appear unusual for runtime.
-- legacy or low-confidence packages should be reviewed for necessity.
-
-## 7. Suggested Future Hardening (Dependency Focus)
-- Centralize and pin critical infra dependencies for reproducible builds.
-- Remove unused or suspicious packages after import-level audit.
-- Introduce security and license scanning in CI.
-
-## 8. Ecosystem Visualization
-```mermaid
-flowchart TD
-    A["React Native App"] --> B["Navigation + Redux"]
-    A --> C["UI Layer"]
-    A --> D["Network (Axios/Fetch)"]
-    A --> E["Device Services"]
-    A --> F["Notifications + Firebase"]
-    A --> G["WebView SaaS Bridge"]
-
-    E --> E1["Location"]
-    E --> E2["Background Fetch"]
-    E --> E3["Camera/Image Picker"]
-    E --> E4["File/PDF/Share"]
-```

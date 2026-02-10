@@ -8,44 +8,31 @@
 ## 1. Build Identity
 - Namespace: `com.nexis365.saas`
 - Application ID: `com.nexis365.saas`
-- Compile SDK: `33`
-- Target SDK: `33`
+- Compile SDK: `34`
+- Target SDK: `34`
 - Min SDK: `23`
+- NDK: `25.1.8937393`
 - Hermes: enabled
 
-Files:
-- `android/build.gradle`
-- `android/app/build.gradle`
-- `android/gradle.properties`
+## 2. Build Config Notes
+### Root Gradle
+- Uses dynamic AGP/RN plugin coordinates from classpath entries.
+- Kotlin plugin pinned to `1.8.0`.
+- Google services plugin `4.3.14`.
 
-## 2. Key Build Configuration Notes
-
-### Root Gradle (`android/build.gradle`)
-- Plugin classpaths include:
-  - Android Gradle plugin `7.3.1`
-  - React Native Gradle plugin `0.71.6`
-  - Google Services plugin `4.3.14`
-- Includes custom maven path for `react-native-background-fetch` libs.
-
-### App Gradle (`android/app/build.gradle`)
+### App Gradle
 - Firebase BOM `33.5.1`
-- Messaging dependency `com.google.firebase:firebase-messaging:23.4.1`
-- Flipper debug dependencies enabled.
-- ABI split logic present but disabled by default (`enableSeparateBuildPerCPUArchitecture=false`).
-- Uses debug signing for release currently (not production-ready).
+- Firebase Messaging `23.4.1`
+- Flipper debug deps still enabled.
+- Native modules gradle path fallback implemented:
+  - first `node_modules/@react-native-community/cli-platform-android/native_modules.gradle`
+  - fallback `node_modules/react-native/node_modules/...`
 
-## 3. Manifest Permissions and Services
-Primary permissions in `android/app/src/main/AndroidManifest.xml`:
+## 3. Android Manifest
+Key permissions include:
 - `INTERNET`
-- `WAKE_LOCK`
-- `ACCESS_FINE_LOCATION`
-- `ACCESS_COARSE_LOCATION`
-- `ACCESS_BACKGROUND_LOCATION`
+- `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`, `ACCESS_BACKGROUND_LOCATION`
 - `FOREGROUND_SERVICE`
-- `RECEIVE_BOOT_COMPLETED`
-- `READ_EXTERNAL_STORAGE`
-- `WRITE_EXTERNAL_STORAGE`
-- `READ_MEDIA_IMAGES`
 - `RECORD_AUDIO`
 - `POST_NOTIFICATIONS`
 
@@ -53,33 +40,11 @@ Notable app flags:
 - `android:usesCleartextTraffic="true"`
 - `android:allowBackup="false"`
 
-Declared services/receivers include:
-- RN Background Fetch headless task service/receiver
-- Foreground service package (`com.supersami.foregroundservice.*`)
-- Background actions service
-- RN permissions service
-- Firebase messaging service + receiver
+## 4. Known Android Caveats
+- Release build type currently signs with debug keystore config.
+- Cleartext traffic enabled globally (review before production).
 
-## 4. Native Entry Classes
-- `MainApplication.java`
-  - Standard RN host setup.
-  - Flipper init for debug.
-  - New architecture toggle support.
-
-- `MainActivity.java`
-  - Sends Android intent notification click data back to JS via `notificationClickHandle` event.
-
-## 5. Android Runtime Integration Notes
-- Push/local notification channels configured in JS (`App.jsx`).
-- Background location stage tracking lives partly in JS (`BackgroundLocationService.js`).
-- Attendance flow expects camera + location + background execution reliability.
-
-## 6. Operational Risks (Android)
-- Cleartext traffic enabled globally.
-- Debug signing used for release profile in current gradle config.
-- Large resource footprint under `res/drawable-*` (bundled/generated assets) increases APK size.
-
-## 7. Android Build Commands
+## 5. Build Commands
 ```bash
 cd /Users/moofasa/Nexis_app
 npm run android
@@ -91,12 +56,3 @@ cd /Users/moofasa/Nexis_app/android
 ./gradlew clean
 ```
 
-## 8. Android Layer Visual
-```mermaid
-flowchart TD
-    A["MainActivity"] --> B["React Native JS Runtime"]
-    B --> C["Stack + Tab Navigation"]
-    C --> D["Attendance + Background Services"]
-    D --> E["BackgroundFetch + Foreground Service"]
-    B --> F["Firebase Messaging"]
-```

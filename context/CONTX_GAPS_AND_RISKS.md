@@ -8,96 +8,53 @@
 ## 1. Critical / High-Risk Findings
 
 ### A. Legacy server code and credentials in app repo
-- `src/screens/webview2.js` contains server-side style code (`express`, `mysql`, `bcrypt`, credentials literals).
-- Contains DB credential literals and backend route logic in a client repository context.
-- Risk: accidental exposure, credential leakage, supply-chain and audit failures.
+- `/Users/moofasa/Nexis_app/src/screens/webview2.js` contains server-style code and sensitive literals.
+- Risk: accidental credential leakage and audit failures.
 
 ### B. Hardcoded local/LAN API URLs in tracked source
 - `http://192.168.1.195:3000/api/update-fcm`
 - `http://192.168.1.105:3000/api/*`
-- Risk: non-portable builds, environment drift, potential MITM/local network assumptions.
+- Risk: non-portable builds and insecure/local-network assumptions.
 
-### C. Cleartext traffic enabled on Android
+### C. Android cleartext traffic enabled
 - `android:usesCleartextTraffic="true"` in manifest.
-- Risk: plaintext HTTP allowance at runtime.
+- Risk: plaintext transport allowed.
 
-### D. Release signing profile uses debug keystore config
+### D. Android release signing still uses debug keystore
 - `android/app/build.gradle` release block points to debug signing config.
-- Risk: production release process not hardened.
+- Risk: non-production signing posture.
 
 ## 2. Medium-Risk Findings
 
-### A. API surface is scattered and uncoupled
-- Endpoints are directly hardcoded in many files.
-- No centralized axios client/interceptor/base URL contract.
-- Risk: drift, inconsistent error handling, difficult environment switching.
+### A. iOS Firebase setup is optional but required for push features
+- App now avoids crash when plist is missing, but push features remain degraded until:
+  - `/Users/moofasa/Nexis_app/ios/app/GoogleService-Info.plist` is added.
 
-### B. Info.plist duplication/inconsistency
-- Duplicate location usage keys and an empty location description entry.
-- Risk: review friction, policy rejection risk in stricter app-store checks.
+### B. One remaining npm advisory in RN transitive tree
+- `GHSA-37qj-frw5-hhjh` (`fast-xml-parser`) remains under RN CLI transitive dependency chain.
+- Risk: security gate noise and compliance friction.
 
-### C. Package dependency hygiene issues
-- Suspicious dependency entry `"-": "^0.0.1"`.
-- Possible unused/legacy runtime packages (`pod`, `force`, others).
-- Risk: inflated attack surface, audit complexity.
+### C. API surface still distributed
+- Endpoints are still hardcoded across many screens/components.
+- Risk: weak environment management and inconsistent error handling.
 
 ### D. Large monolithic screens/components
-- `tabs/Dashboard.js`, `Header.js`, `LeadForm.js`, `IncidentForm.js`, `EodForm.js` are highly dense.
-- Risk: fragile modifications, hidden regressions, difficult testability.
+- Several high-churn files remain large and hard to test/change safely.
 
-### E. Repository-wide mass-change commits reduce review signal
-- Latest commit (`cef7066`, dated 2026-02-10) changed `262` files with very high churn.
-- Most modified files have equal insertions/deletions, indicating broad formatting/EOL rewrite patterns.
-- Includes regenerated artifact churn like `android/app/src/main/assets/index.android.bundle` and very large lockfile churn in `package-lock.json`.
-- Risk: reviewers can miss real behavioral changes hidden inside broad mechanical rewrites.
+## 3. Reliability Risks
+- Attendance flow couples location, background work, and API updates.
+- Runtime stability depends on consistent native permission setup and platform-specific rebuild hygiene.
 
-## 3. Functional Reliability Risks
-- Multiple flows depend on AsyncStorage keys existing exactly as expected.
-- Attendance path mixes camera, location, background fetch, and API calls with minimal fallback orchestration.
-- WebView route generation depends on string transforms of menu labels.
+## 4. Test Coverage Risks
+- Baseline test coverage remains limited.
+- Critical flows (auth/session/attendance/error handling) still need dedicated tests.
 
-## 4. QA/Test Coverage Risks
-- Only baseline render test exists in `__tests__/App-test.tsx`.
-- No focused tests for:
-  - Auth/session persistence
-  - Attendance lifecycle (clock-in/out)
-  - API error handling per domain
-  - Navigation transition correctness
-
-## 5. Risk Prioritization
+## 5. Current Priority Queue
 | Priority | Item |
 |---|---|
-| P0 | Remove/relocate sensitive backend logic and credentials from `webview2.js`. |
-| P1 | Replace hardcoded LAN endpoints with environment-configured base URLs. |
-| P1 | Disable cleartext traffic unless strictly required and isolated. |
-| P1 | Establish production signing config. |
-| P2 | Centralize API client + storage keys. |
-| P2 | Break up monolithic screens/components and add targeted tests. |
-| P2 | Separate mechanical formatting commits from behavioral changes to improve review quality. |
-| P3 | Dependency pruning and strict lint/static checks for unsafe artifacts. |
+| P0 | Remove sensitive backend-style code/secrets from client repo. |
+| P1 | Replace LAN/hardcoded endpoints with centralized environment config. |
+| P1 | Harden Android transport/signing for production. |
+| P1 | Decide advisory policy for transitive `fast-xml-parser` issue (waive/override/upgrade path). |
+| P2 | Expand targeted tests for auth, attendance, notifications, and navigation. |
 
-## 6. Suggested Hardening Sequence
-1. Secrets and legacy server code cleanup.
-2. Networking hardening (base URL config + TLS-only policy).
-3. Release config hardening.
-4. State/API abstraction cleanup.
-5. Test coverage for mission-critical flows.
-
-## 7. Visual Risk Map
-```mermaid
-flowchart TD
-    A["Codebase"] --> B["Security Risk"]
-    A --> C["Runtime Risk"]
-    A --> D["Maintainability Risk"]
-
-    B --> B1["Embedded credentials in legacy file"]
-    B --> B2["Cleartext traffic enabled"]
-    B --> B3["Hardcoded LAN endpoints"]
-
-    C --> C1["Complex attendance flow dependencies"]
-    C --> C2["Distributed AsyncStorage key coupling"]
-
-    D --> D1["Large monolithic components"]
-    D --> D2["Scattered API definitions"]
-    D --> D3["Sparse automated tests"]
-```

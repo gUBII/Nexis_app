@@ -1,7 +1,8 @@
 CONTX MASTER CONTEXT (AI + HUMAN)
 =================================
 Generated for repository: /Users/moofasa/Nexis_app
-Project type: React Native mobile app (Android + iOS) with custom tab shell, API-connected business workflows, WebView bridges to SaaS pages, and background/location services.
+Snapshot date: 2026-02-10
+Project type: React Native mobile app (Android + iOS) with custom navigation shell, API-connected business workflows, WebView SaaS bridge, notifications, and background/location services.
 
 [1] IDENTITY SNAPSHOT
 ---------------------
@@ -9,199 +10,70 @@ Name from package.json: app
 App Registry: index.js -> AppRegistry.registerComponent(appName, () => App)
 Main App component: App.jsx
 Main nav root: NavigationContainer + StackNavigator
+
 Primary state model:
-- Redux Toolkit slice: tab.screen (used by custom tab navigation)
-- Multiple React contexts for theme, loader, menu refresh, task/pending counters, and user token
+- Redux Toolkit slice for tab state
+- Multiple React contexts (theme, loader, menu/task/pending/user)
 
-Stack summary:
-- JavaScript/React Native app code in src/
-- Full native projects: android/ and ios/
-- Firebase messaging + local push notification setup
-- Geolocation + background fetch + foreground/background services
-- Extensive API usage against app.nexis365.com
-- Embedded WebView routes into www.nexis365.com/saas
-
-[2] CODEBASE SIZE SNAPSHOT
---------------------------
-src:      274 files, ~11.25 MB
-android:  391 files, ~17.94 MB
-ios:       17 files, ~0.07 MB
-
-Top source density:
-- src/assets: 145 files (icons/images/fonts/svg)
-- src/screens: 95 files
-- src/components: 20 files
-
-Routing density:
-- Stack routes declared: 82
-- Tab entries (custom, Redux-based): Tasks, Jobs, Home, Documents, Timesheet
-- Route targets validated: all navigation targets resolve to stack or tabs
-
-[3] CORE RUNTIME FLOW
----------------------
-Launch
- -> SplashScreenc (animated gif delay)
- -> Onboarding (checks AsyncStorage: hasSeenOnboarding + userToken)
- -> SignIn or TabNavigator
-
-Authenticated app
- -> TabNavigator (custom bottom tabs driven by Redux state.tab.screen)
- -> Home tab uses tabs/Dashboard.js (largest orchestration screen)
- -> Dashboard hits API endpoints for tasks/jobs/attendance/activity + WebView cookie bridge
-
-Cross-domain behavior
- -> Many screens submit forms/documents via axios/FormData
- -> Some screens open Webview route with SaaS URLs
- -> AttendanceRecord handles camera+location+clock-in/out and starts background location tracking
-
-[4] FOLDER RESPONSIBILITY QUICK VIEW
-------------------------------------
-/src/assets
-- Static UI resources: png/jpg/gif/ttf and custom svg components.
-
-/src/components
-- Reusable primitives (Button/Input/Dropdown/Loader/Header/etc.)
-- Header is a high-impact orchestration component with menu APIs and navigation shortcuts.
-
-/src/constants
-- theme.js + context providers (Theme, Loader, User, Menu, Task, Pending).
-
-/src/navigation
-- StackNavigator.js: stack route registry
-- TabNavigator.js: custom tab renderer using Redux tab slice
-
-/src/screens
-- Business/domain screens: auth, lead/campaign CRM, jobs/tasks, attendance/timesheet, forms (EOD/BOC/Incident), payments/cards
-- Webview wrapper screens
-- Large orchestration screens and several legacy/experimental files
-
-/src/services
-- notificationService.js (FCM token permission/token/save and foreground/background message handling)
-
-/src/store
-- tabSlice.js + store.js
-
-/src/utils
-- permissions helper(s)
-
-/android
-- Native Android Gradle project, manifest permissions/services, Firebase Google services plugin
-
-/ios
-- Native iOS Xcode project, Podfile, Info.plist permissions and background mode declarations
-
-[5] API + INTEGRATION SNAPSHOT
-------------------------------
-Primary API host:
-- https://app.nexis365.com/api/*
-
-Primary SaaS/Web host:
-- https://www.nexis365.com/saas/*
-
-Local/LAN endpoints present in code:
-- http://192.168.1.195:3000/api/update-fcm (notificationService)
-- http://192.168.1.105:3000/api/* (MyComponent)
-
-Main endpoint families observed:
-- Auth/profile: signin, solutions, get-profile, update-user-info
-- Jobs/tasks: get-jobs, accept-job, get-tasks, update-task-status
-- Attendance/forms: clock-in, clock-out, boc/eod/incident (+ pagination)
-- CRM/lead docs: campaigns, leads, calls, emails, minutes, cases, quotes, deals, contracts (+ update endpoints)
-- Menu/modules: sidebarmenu(s), modulesmenu/modulespmenu/modulespsmenu, modu, toggle updates
-- Misc: recent-activity, favicon, qa, save-location
-
-[6] KEY STATE KEYS (ASYNCSTORAGE)
----------------------------------
-Frequently used keys:
-- ref_db
-- secondaryId
-- secondaryUnbox
-- secondaryUsername2 / secondaryUsername
-- userToken
-- application
-- currentJobId
-- lastClockIn
-- elapsedTime
-- attendance_records
-
-For full raw key inventory with source references:
-- CONTX_ASYNCSTORAGE_KEYS_RAW.txt
-
-[7] DEPENDENCY PROFILE (HIGHLIGHT)
+[2] CURRENT VERSION/STACK SNAPSHOT
 ----------------------------------
-Core:
-- react 18.2.0
-- react-native 0.71.6
-- @react-navigation/native + native-stack
-- @reduxjs/toolkit + react-redux
+- React: 18.2.0
+- React Native: 0.73.x (resolved 0.73.11)
+- Android compile/target SDK: 34
+- iOS native project with CocoaPods + Xcode workspace
+- Hermes enabled
 
-Platform/services:
-- @react-native-firebase/app + messaging
-- react-native-push-notification
-- @react-native-community/geolocation
-- react-native-background-fetch
-- react-native-location
-- react-native-permissions
-- react-native-webview
-- axios
+[3] CURRENT HIGH-IMPACT INTEGRATIONS
+------------------------------------
+- Firebase app + messaging (@react-native-firebase/app, messaging)
+- Local push notifications (react-native-push-notification)
+- Location/background stack:
+  - react-native-location
+  - react-native-background-fetch
+  - react-native-background-actions
+- Voice/microphone support (@react-native-voice/voice)
+- WebView integration (react-native-webview)
 
-[8] HOW TO RUN (SHORT)
+[4] IMPORTANT CURRENT RUNTIME BEHAVIOR
+--------------------------------------
+- AppDelegate now conditionally configures Firebase only if GoogleService-Info.plist exists.
+- App.jsx checks Firebase default app existence before requesting messaging permissions.
+- Missing iOS Firebase plist no longer hard-crashes app startup; warning is logged.
+- iOS Podfile contains setup_permissions handlers for RNPermissions.
+- Local permission helper currently requests location via react-native-location.
+
+[5] CURRENT KNOWN ISSUES
+------------------------
+- One npm advisory remains (fast-xml-parser) in RN CLI transitive dependency graph.
+- iOS push functionality requires ios/app/GoogleService-Info.plist.
+- Android manifest still allows cleartext traffic and release signing uses debug keystore.
+
+[6] HOW TO RUN (SHORT)
 ----------------------
-Prereqs:
-- Node 18 (from .node-version)
-- npm
-- Android Studio SDK + emulator/device
-- Xcode + CocoaPods for iOS
+1) npm install
+2) cd ios && bundle install && bundle exec pod install && cd ..
+3) npm start
+4) npm run android OR npm run ios
+5) device example: npx react-native run-ios --device "Farhan’s iPhone"
 
-Commands:
-- npm install
-- npm start
-- npm run android
-- cd ios && pod install && cd .. && npm run ios
-
-Detailed instructions:
+[7] DOC ENTRYPOINTS
+-------------------
+- CONTX_INDEX.md
 - CONTX_HOW_TO_RUN.md
-- CONTX_HOW_TO_RUN.txt
-
-[9] MAJOR RISK FLAGS (SHORT)
-----------------------------
-- Hardcoded local IP API URLs in tracked source.
-- android:usesCleartextTraffic="true" in AndroidManifest.
-- webview2.js contains server-side code and hardcoded DB credentials in repo (legacy/unsafe artifact risk).
-- package.json includes suspicious/legacy entries (e.g., dependency "-": "^0.0.1").
-- iOS Info.plist has repeated/duplicate location keys.
-
-Detailed risk notes:
+- CONTX_DEPENDENCIES_AND_STACK.md
+- CONTX_NATIVE_IOS.md
+- CONTX_NATIVE_ANDROID.md
 - CONTX_GAPS_AND_RISKS.md
+- CONTX_SESSION_CHANGELOG.md
 
-[10] LATEST COMMIT AUDIT (SHORT)
--------------------------------
-Latest reviewed commit:
-- Hash: cef706644836cb4c7ecfb51493768c082a9a19bf
-- Date: 2026-02-10 08:09:31 +1100
-- Subject: dev update
-
-Delta summary:
-- 262 files changed (243 modified, 19 added)
-- 59,518 insertions / 56,873 deletions
-- 243 files show equal insertions/deletions (large formatting/EOL churn signal)
-
-Semantic checks versus parent commit:
-- API endpoint count: unchanged (58 -> 58)
-- Stack route count: unchanged (82 -> 82)
-- Runtime dependency set in package.json: unchanged (61 -> 61)
-
-Commit audit docs:
-- CONTX_LAST_COMMIT_UPDATE.md
-- CONTX_LAST_COMMIT_FILES_RAW.txt
-- CONTX_LAST_COMMIT_TOP_DELTA.txt
-
-[11] RAW MACHINE FILES FOR AGENTS
----------------------------------
-- CONTX_API_ENDPOINTS_RAW.txt
-- CONTX_ROUTE_TARGETS_RAW.txt
-- CONTX_FUNCTIONS_RAW.txt
-- CONTX_ASYNCSTORAGE_KEYS_RAW.txt
-- CONTX_SCREEN_METRICS_RAW.txt
+[8] LATEST COMMIT SNAPSHOT (CURRENT HEAD)
+-----------------------------------------
+- Hash: d3cf038ac3c6ee34a967202e4307c1301ed5495a
+- Short: d3cf038
+- Subject: feat: add permission setup for location and microphone in Podfile
+- Date: 2026-02-10T12:45:46+11:00
+- Files changed: 2
+  - ios/Podfile
+  - ios/Podfile.lock
 
 END OF CONTX MASTER CONTEXT

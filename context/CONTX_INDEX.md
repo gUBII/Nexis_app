@@ -28,6 +28,7 @@ Use this file as the top-level entry point.
 | `CONTX_DATA_AND_STATE.md` | Redux, Context, AsyncStorage keys, state lifecycles. | AI + Human |
 | `CONTX_GAPS_AND_RISKS.md` | Architectural, security, maintainability, and runtime risk notes. | Tech Lead |
 | `CONTX_LAST_COMMIT_UPDATE.md` | Audited summary of the latest commit (scope, semantic deltas, hotspots). | AI + Human |
+| `CONTX_SESSION_CHANGELOG.md` | Full session-level history of dependency, iOS, runtime, and docs changes. | AI + Human |
 | `CONTX_API_ENDPOINTS_RAW.txt` | Raw auto-extracted API call rows. | AI |
 | `CONTX_ROUTE_TARGETS_RAW.txt` | Raw auto-extracted navigation transitions. | AI |
 | `CONTX_FUNCTIONS_RAW.txt` | Raw function definition inventory. | AI |
@@ -58,4 +59,5 @@ flowchart TD
 2. Read `CONTX_HOW_TO_RUN.md` and verify environment.
 3. Read `CONTX_ROUTING_AND_FLOW.md` + `CONTX_API_CALLS_MATRIX.md`.
 4. Read `CONTX_LAST_COMMIT_UPDATE.md` for latest-commit deltas.
-5. Use raw files when scripting analysis or building agents.
+5. Read `CONTX_SESSION_CHANGELOG.md` for full chat/session evolution.
+6. Use raw files when scripting analysis or building agents.
